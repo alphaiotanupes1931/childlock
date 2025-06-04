@@ -33,6 +33,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import Header from "@/components/Header";
+import { colors } from "@/lib/colors";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -452,7 +453,10 @@ const Register = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background">
+    <div
+      className="min-h-screen"
+      style={{ backgroundColor: colors.background }}
+    >
       <Header />
 
       <div className="container mx-auto px-4 py-8">
@@ -486,11 +490,19 @@ const Register = () => {
 
               <div className="ml-auto">
                 {step < 3 ? (
-                  <Button type="button" onClick={nextStep}>
+                  <Button
+                    type="button"
+                    onClick={nextStep}
+                    style={{ backgroundColor: colors.primary }}
+                  >
                     Next
                   </Button>
                 ) : (
-                  <Button type="submit" disabled={isSubmitting}>
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    style={{ backgroundColor: colors.primary }}
+                  >
                     {isSubmitting ? "Submitting..." : "Submit Registration"}
                   </Button>
                 )}

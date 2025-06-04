@@ -25,7 +25,10 @@ import {
 } from "lucide-react";
 import { format } from "date-fns";
 import Header from "@/components/Header";
+import BottomNavigation from "@/components/BottomNavigation";
 import VerificationScanner from "@/components/VerificationScanner";
+import CameraScanner from "@/components/CameraScanner";
+import { colors } from "@/lib/colors";
 import { mockVerificationRecords, mockCheckpoints } from "@/lib/mockData";
 
 const Verification = () => {
@@ -77,10 +80,13 @@ const Verification = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background">
+    <div
+      className="min-h-screen"
+      style={{ backgroundColor: colors.background }}
+    >
       <Header />
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 pb-24">
         <div className="flex justify-between items-center mb-8">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">
@@ -137,7 +143,11 @@ const Verification = () => {
           </TabsList>
 
           <TabsContent value="scanner" className="space-y-6">
-            <VerificationScanner />
+            <CameraScanner
+              title="Child Verification Scanner"
+              description="Scan QR code or government ID to verify child identity"
+              scanType="qr"
+            />
           </TabsContent>
 
           <TabsContent value="manual" className="space-y-6">
@@ -338,6 +348,8 @@ const Verification = () => {
           </CardContent>
         </Card>
       </div>
+
+      <BottomNavigation />
     </div>
   );
 };

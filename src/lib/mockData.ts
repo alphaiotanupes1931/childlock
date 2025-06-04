@@ -1,4 +1,20 @@
-import { Child, Parent, VerificationRecord, Checkpoint } from "./types";
+import {
+  Child,
+  Parent,
+  VerificationRecord,
+  Checkpoint,
+  TravelPermission,
+  Alert,
+  NotificationPreferences,
+} from "./types";
+
+const defaultNotificationPreferences: NotificationPreferences = {
+  emailAlerts: true,
+  smsAlerts: true,
+  pushNotifications: true,
+  emergencyOnly: false,
+  dailySummary: true,
+};
 
 export const mockParents: Parent[] = [
   {
@@ -11,6 +27,8 @@ export const mockParents: Parent[] = [
     children: [],
     verified: true,
     createdAt: new Date("2024-01-15"),
+    profileImage: "/placeholder.svg",
+    notificationPreferences: defaultNotificationPreferences,
   },
   {
     id: "2",
@@ -22,6 +40,8 @@ export const mockParents: Parent[] = [
     children: [],
     verified: true,
     createdAt: new Date("2024-02-20"),
+    profileImage: "/placeholder.svg",
+    notificationPreferences: defaultNotificationPreferences,
   },
 ];
 
@@ -30,6 +50,8 @@ export const mockChildren: Child[] = [
     id: "c1",
     name: "Emma Johnson",
     age: 8,
+    dateOfBirth: new Date("2016-03-15"),
+    gender: "female",
     photo: "/placeholder.svg",
     governmentId: "BC-2020123456",
     parentId: "1",
@@ -38,11 +60,15 @@ export const mockChildren: Child[] = [
     createdAt: new Date("2024-01-16"),
     lastVerified: new Date("2024-12-20"),
     isActive: true,
+    qrCode: "QR_EMMA_2024_SECURE_TOKEN",
+    travelPermissions: ["tp1"],
   },
   {
     id: "c2",
     name: "Liam Johnson",
     age: 6,
+    dateOfBirth: new Date("2018-07-22"),
+    gender: "male",
     photo: "/placeholder.svg",
     governmentId: "BC-2022567890",
     parentId: "1",
@@ -51,11 +77,15 @@ export const mockChildren: Child[] = [
     createdAt: new Date("2024-01-16"),
     lastVerified: new Date("2024-12-19"),
     isActive: true,
+    qrCode: "QR_LIAM_2024_SECURE_TOKEN",
+    travelPermissions: [],
   },
   {
     id: "c3",
     name: "Sophia Chen",
     age: 10,
+    dateOfBirth: new Date("2014-11-08"),
+    gender: "female",
     photo: "/placeholder.svg",
     governmentId: "BC-2018345678",
     parentId: "2",
@@ -63,6 +93,8 @@ export const mockChildren: Child[] = [
     createdAt: new Date("2024-02-21"),
     lastVerified: new Date("2024-12-18"),
     isActive: true,
+    qrCode: "QR_SOPHIA_2024_SECURE_TOKEN",
+    travelPermissions: [],
   },
 ];
 

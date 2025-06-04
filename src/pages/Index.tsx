@@ -68,13 +68,22 @@ const Index = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/register">
-              <Button size="lg" className="w-full sm:w-auto">
+              <Button
+                size="lg"
+                className="w-full sm:w-auto"
+                style={{ backgroundColor: colors.primary }}
+              >
                 <Users className="h-5 w-5 mr-2" />
                 Register Your Child
               </Button>
             </Link>
             <Link to="/verification">
-              <Button variant="outline" size="lg" className="w-full sm:w-auto">
+              <Button
+                variant="outline"
+                size="lg"
+                className="w-full sm:w-auto"
+                style={{ borderColor: colors.primary, color: colors.primary }}
+              >
                 <QrCode className="h-5 w-5 mr-2" />
                 Checkpoint Verification
               </Button>
@@ -84,12 +93,18 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-blue-50 py-16">
+      <section
+        className="py-16"
+        style={{ backgroundColor: `${colors.primary}10` }}
+      >
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
+                <div
+                  className="text-3xl md:text-4xl font-bold mb-2"
+                  style={{ color: colors.primary }}
+                >
                   {stat.number}
                 </div>
                 <div className="text-gray-600">{stat.label}</div>
@@ -178,31 +193,40 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-600 text-white py-16">
+      <section
+        className="text-white py-16"
+        style={{ background: gradients.primary }}
+      >
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Start Protecting Your Children Today
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p
+            className="text-xl mb-8 max-w-2xl mx-auto"
+            style={{ color: `${colors.light}90` }}
+          >
             Join thousands of families who trust Child Link to keep their
             children safe. Registration is free and takes less than 5 minutes.
           </p>
           <Link to="/register">
-            <Button size="lg" variant="secondary">
+            <Button
+              size="lg"
+              variant="secondary"
+              style={{ backgroundColor: colors.light, color: colors.primary }}
+            >
               <Shield className="h-5 w-5 mr-2" />
               Get Started Now
             </Button>
           </Link>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <Shield className="h-6 w-6 text-blue-400" />
+                <Shield className="h-6 w-6" style={{ color: colors.primary }} />
                 <span className="text-xl font-bold">Child Link</span>
               </div>
               <p className="text-gray-400">
