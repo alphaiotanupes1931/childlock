@@ -90,10 +90,13 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div
+      className="min-h-screen"
+      style={{ backgroundColor: colors.background }}
+    >
       <Header />
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 pb-24">
         <div className="flex justify-between items-center mb-8">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
@@ -310,7 +313,7 @@ const Dashboard = () => {
             <CardTitle>Quick Actions</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <Button variant="outline" className="h-auto p-4">
                 <div className="text-center">
                   <QrCode className="h-6 w-6 mx-auto mb-2" />
@@ -321,15 +324,29 @@ const Dashboard = () => {
                 </div>
               </Button>
 
-              <Button variant="outline" className="h-auto p-4">
-                <div className="text-center">
-                  <Download className="h-6 w-6 mx-auto mb-2" />
-                  <div className="font-medium">Download Reports</div>
-                  <div className="text-sm text-muted-foreground">
-                    Export verification history
+              <Link to="/travel-permissions" className="block">
+                <Button variant="outline" className="h-auto p-4 w-full">
+                  <div className="text-center">
+                    <MapPin className="h-6 w-6 mx-auto mb-2" />
+                    <div className="font-medium">Travel Permissions</div>
+                    <div className="text-sm text-muted-foreground">
+                      Manage guardian permissions
+                    </div>
                   </div>
-                </div>
-              </Button>
+                </Button>
+              </Link>
+
+              <Link to="/activity-log" className="block">
+                <Button variant="outline" className="h-auto p-4 w-full">
+                  <div className="text-center">
+                    <Activity className="h-6 w-6 mx-auto mb-2" />
+                    <div className="font-medium">Activity Log</div>
+                    <div className="text-sm text-muted-foreground">
+                      View activity history
+                    </div>
+                  </div>
+                </Button>
+              </Link>
 
               <Link to="/register" className="block">
                 <Button variant="outline" className="h-auto p-4 w-full">
@@ -346,6 +363,8 @@ const Dashboard = () => {
           </CardContent>
         </Card>
       </div>
+
+      <BottomNavigation />
     </div>
   );
 };
